@@ -8,4 +8,6 @@ def matrix_shape(matrix):
     shape.append(len(matrix))
     if type(matrix[0]) == list:
         shape.append(len(matrix[0]))
+        if type(matrix[0][0]) == list:
+            shape.append(len(matrix[0][0]))
     return shape
