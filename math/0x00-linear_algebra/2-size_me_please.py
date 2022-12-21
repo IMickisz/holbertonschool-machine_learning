@@ -4,10 +4,7 @@
 
 def matrix_shape(matrix):
     """ Function that calculates the shape of a matrix """
-    shape = []
-    shape.append(len(matrix))
-    if type(matrix[0]) == list:
-        shape.append(len(matrix[0]))
-        if type(matrix[0][0]) == list:
-            shape.append(len(matrix[0][0]))
-    return shape
+    if type(matrix[0]) is not list:
+        return [len(matrix)]
+    else:
+        return [len(matrix)] + matrix_shape(matrix[0])
