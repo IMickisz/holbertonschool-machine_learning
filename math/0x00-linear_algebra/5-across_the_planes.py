@@ -12,3 +12,13 @@ def add_matrices2D(mat1, mat2):
     for i in range(len(mat1)):
         mat.append(add_arrays(mat1[i], mat2[i]))
     return mat
+
+
+def add_arrays(arr1, arr2):
+    """ Function that adds two arrays element-wise """
+    if len(arr1) != len(arr2):
+        return None
+    list = []
+    for i in range(len(arr1)):
+        list.append(arr1[i] + arr2[i])
+    return list
