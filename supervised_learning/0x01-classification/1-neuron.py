@@ -31,6 +31,6 @@ class Neuron:
 
     @property
     def A(self):
-        """ Getter function for W that return the activated output of the
+        """ Getter function for A that return the activated output of the
         neuron """
         return self.__A

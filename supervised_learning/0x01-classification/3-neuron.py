@@ -19,7 +19,7 @@ class Neuron:
         self.__b = 0
         self.__A = 0
 
-        @property
+    @property
     def W(self):
         """ Getter function for W that return the weight vector neuron """
         return self.__W
@@ -31,7 +31,8 @@ class Neuron:
 
     @property
     def A(self):
-        """ Getter function for W return the activated output of the neuron """
+        """ Getter function for A that return the activated output of the
+        neuron """
         return self.__A
 
     def forward_prop(self, X):

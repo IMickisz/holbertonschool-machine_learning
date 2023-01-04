@@ -31,7 +31,8 @@ class Neuron:
 
     @property
     def A(self):
-        """ Getter function for W return the activated output of the neuron """
+        """ Getter function for A that return the activated output of the
+        neuron """
         return self.__A
 
     def forward_prop(self, X):
