@@ -19,7 +19,7 @@ class Neuron:
         self.__b = 0
         self.__A = 0
 
-        @property
+    @property
     def W(self):
         """ Getter function for W that return the weight vector neuron """
         return self.__W
