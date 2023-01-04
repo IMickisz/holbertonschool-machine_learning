@@ -9,7 +9,7 @@ class Neuron:
     def __init__(self, nx):
         """
         class constructor
-           - nx: is the number of input features to the neuron
+           - nx : number of input features to the neuron
         """
         if type(nx) is not int:
             raise TypeError("nx must be an integer")
@@ -19,18 +19,18 @@ class Neuron:
         self.__b = 0
         self.__A = 0
 
-        @property
-        def W(self):
-            """ Getter function for W that return the weight vector neuron """
-            return self.__W
+    @property
+    def W(self):
+        """ Getter function for W that return the weight vector neuron """
+        return self.__W
 
-        @property
-        def b(self):
-            """ Getter function for b that return the  bias for the neuron """
-            return self.__b
+    @property
+    def b(self):
+        """ Getter function for b that return the  bias for the neuron """
+        return self.__b
 
-        @property
-        def A(self):
-            """ Getter function for W that return the activated output of the
-            neuron """
-            return self.__A
+    @property
+    def A(self):
+        """ Getter function for W that return the activated output of the
+        neuron """
+        return self.__A
