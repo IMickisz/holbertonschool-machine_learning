@@ -32,7 +32,7 @@ def pool(images, kernel_shape, stride, mode='max'):
         op = np.average
     p_h, p_w = 0, 0
     W_out = (w + (2 * p_w) - kw) // sw + 1
-    H_out = (h + (2 * p_h) - kh ) // sh + 1
+    H_out = (h + (2 * p_h) - kh) // sh + 1
     output_matrix = np.zeros((m, H_out, W_out, c))
     for h in range(H_out):
         for w in range(W_out):
