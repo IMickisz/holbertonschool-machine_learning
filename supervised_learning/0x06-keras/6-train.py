@@ -13,27 +13,30 @@ def train_model(network, data, labels, batch_size, epochs,
          - labels: one-hot numpy.ndarray of shape (m, classes) containing the
     labels of data
          - batch_size: size of the batch used for mini-batch gradient descent
-         - epochs: number of passes through data for mini-batch gradient descent
+         - epochs: number of passes through data for mini-batch gradient
+    descent
          - validation_data: data to validate the model with, if not None
          - early_stopping: boolean that indicates whether early stopping
     should be used
-               early stopping should only be performed if validation_data exists
+               early stopping should only be performed if validation_data
+               exists
                early stopping should be based on validation loss
          - patience: patience used for early stopping
          - verbose: boolean that determines if output should be printed during
     training
-         - shuffle: boolean that determines whether to shuffle the batches every
-    epoch. Normally, it is a good idea to shuffle, but for reproducibility, we
-    have chosen to set the default to False.
+         - shuffle: boolean that determines whether to shuffle the batches
+    every epoch. Normally, it is a good idea to shuffle, but for
+    reproducibility, we have chosen to set the default to False.
     Returns: the History object generated after training the model
     """
     callback = None
 
     if early_stopping and validation_data:
         callback = []
-        callback.append(K.callbacks.EarlyStopping(monitor='val_loss',
-                                                  patience=patience))
-        history = network.fit( data, labels, batch_size=batch_size,
-        epochs=epochs, validation_data=validation_data, verbose=verbose,
-        callbacks=callback, shuffle=shuffle)
+        callback.append(K.callbacks.EarlyStopping(
+            monitor='val_loss', patience=patience))
+        history = network.fit(
+            data, labels, batch_size=batch_size,
+            epochs=epochs, validation_data=validation_data, verbose=verbose,
+            callbacks=callback, shuffle=shuffle)
     return history

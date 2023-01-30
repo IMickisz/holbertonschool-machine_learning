@@ -12,12 +12,13 @@ def train_model(network, data, labels, batch_size, epochs, verbose=True,
          - labels: one-hot numpy.ndarray of shape (m, classes) containing the
     labels of data
          - batch_size: size of the batch used for mini-batch gradient descent
-         - epochs: number of passes through data for mini-batch gradient descent
+         - epochs: number of passes through data for mini-batch gradient
+    descent
          - verbose: boolean that determines if output should be printed during
     training
-         - shuffle: boolean that determines whether to shuffle the batches every
-    epoch. Normally, it is a good idea to shuffle, but for reproducibility, we
-    have chosen to set the default to False.
+         - shuffle: boolean that determines whether to shuffle the batches
+    every epoch. Normally, it is a good idea to shuffle, but for
+    reproducibility, we have chosen to set the default to False.
     Returns: the History object generated after training the model
     """
     history = network.fit(data, labels, batch_size=batch_size, epochs=epochs,
