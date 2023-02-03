@@ -31,15 +31,23 @@ def conv_backward(dZ, A_prev, W, b, padding="same", stride=(1, 1)):
             sh: stride for the height
             sw: stride for the width
     """
-    m, h_new, w_new, c_new = dZ.shape[0], dZ.shape[1], dZ.shape[2], dZ.shape[3]
-    h_prev, w_prev, c_prev = A_prev.shape[0], A_prev.shape[1], A_prev.shape[2]
-    kh, kw = W.shape[0], W.shape[1]
-    sh, sw = stride[0], stride[1]
+    m = dZ.shape[0]
+    h_new = dZ.shape[1]
+    w_new = dZ.shape[2]
+    c_new = dZ.shape[3]
+    h_prev = A_prev.shape[1]
+    w_prev = A_prev.shape[2]
+    c_prev = A_prev.shape[3]
+    kh = W.shape[0]
+    kw = W.shape[1]
+    sh = stride[0]
+    sw = stride[1]
 
     # padding
     if padding == 'same':
         ph = int(((h_prev - 1) * sh + kh - h_prev) / 2) + 1
         pw = int(((w_prev - 1) * sw + kw - w_prev) / 2) + 1
+
     elif padding == 'valid':
         ph = 0
         pw = 0
@@ -49,7 +57,9 @@ def conv_backward(dZ, A_prev, W, b, padding="same", stride=(1, 1)):
                  (ph, ph),
                  (pw, pw),
                  (0, 0)]
-    padded_images = np.pad(A_prev, pad_width, mode='constant',
+    padded_images = np.pad(A_prev,
+                           pad_width,
+                           mode='constant',
                            constant_values=0)
 
     # initialize dA_prev, dW and db
