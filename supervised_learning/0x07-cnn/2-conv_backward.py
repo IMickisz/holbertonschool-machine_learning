@@ -45,7 +45,10 @@ def conv_backward(dZ, A_prev, W, b, padding="same", stride=(1, 1)):
         pw = 0
 
     # convolution with padding and stride
-    pad_width = [(0, 0), (ph, ph), (pw, pw), (0, 0)]
+    pad_width = [(0, 0),
+                 (ph, ph),
+                 (pw, pw),
+                 (0, 0)]
     padded_images = np.pad(A_prev, pad_width, mode='constant',
                            constant_values=0)
 
