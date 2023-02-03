@@ -31,7 +31,7 @@ def pool_backward(dA, A_prev, kernel_shape, stride=(1, 1), mode='max'):
     m, h_new, w_new, c = dA.shape
     h_prev, w_prev = A_prev.shape[0], A_prev.shape[1]
     kh, kw = kernel_shape
-    sh, sw  = stride
+    sh, sw = stride
 
     dA_prev = np.zeros(A_prev.shape)
 
