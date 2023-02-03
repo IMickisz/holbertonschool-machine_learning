@@ -31,7 +31,7 @@ def conv_backward(dZ, A_prev, W, b, padding="same", stride=(1, 1)):
             sh: stride for the height
             sw: stride for the width
     """
-    m, h_new, w_new, c_new = dZ.shape
+    m, h_new, w_new, c_new = dZ.shape[0], dZ.shape[1], dZ.shape[3], dZ.shape[4]
     h_prev, w_prev, c_prev = A_prev.shape[0], A_prev.shape[1], A_prev.shape[2]
     kh, kw = W.shape[0], W.shape[1]
     sh, sw = stride
@@ -45,13 +45,8 @@ def conv_backward(dZ, A_prev, W, b, padding="same", stride=(1, 1)):
         pw = 0
 
     # convolution with padding and stride
-    pad_width = [(0, 0),
-                 (ph, ph),
-                 (pw, pw),
-                 (0, 0)]
-    padded_images = np.pad(A_prev,
-                           pad_width,
-                           mode='constant',
+    pad_width = [(0, 0), (ph, ph), (pw, pw), (0, 0)]
+    padded_images = np.pad(A_prev, pad_width, mode='constant',
                            constant_values=0)
 
     # initialize dA_prev, dW and db
