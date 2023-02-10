@@ -22,7 +22,8 @@ def inception_block(A_prev, filters):
 
     L1 = K.layers.Conv2D(F1, (1, 1), padding='same', activation='relu')(A_prev)
 
-    L2 = K.layers.Conv2D(F3R, (1, 1), padding='same', activation='relu')(A_prev)
+    L2 = K.layers.Conv2D(
+        F3R, (1, 1), padding='same', activation='relu')(A_prev)
     L2 = K.layers.Conv2D(F3, (3, 3), padding='same', activation='relu')(L2)
 
     # Convolutional layer with F5R kernels of shape 1x1 with same padding
