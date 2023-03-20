@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Module that contains matrix_shape """
+""" Module that contains matrix_shape function """
 
 
 def matrix_shape(matrix):
